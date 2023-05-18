@@ -58,7 +58,7 @@ class User extends Authenticatable
 						'name' => $user->name,
 						'description' => 'Describe your Doggo!',
 						'image' => '/svg/defaultPFP.webp',
-						// Set other default profile attributes here
+						// this allows new user to have default pfp
 				]);
 		});
 	}
