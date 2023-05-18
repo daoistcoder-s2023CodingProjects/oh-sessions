@@ -3,7 +3,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container"  style="max-width: 100%;">
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card mb-3">
@@ -18,10 +18,10 @@
               <div class="d-flex justify-content-between align-items-center">
                 <h5 class="card-title"><strong>{{ Auth::user()->name }}</strong></h5>
               </div>
-              <p class="card-text">
+              <p class="card-text" style="overflow-wrap: break-word;">
                {{ auth()->user()->profile->description }}
               </p>
-							<p class="card-text"><small class="text-muted">{{ auth()->user()->profile->name }}</small></p>
+							<p class="card-text"><small class="text-muted">Bruno Test</small></p>
 							<div class="card-body d-flex justify-content-end align-items-end">
 
 								<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateProfileModal">

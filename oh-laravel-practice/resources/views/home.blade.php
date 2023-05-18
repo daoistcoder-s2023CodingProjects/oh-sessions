@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" style="max-width: 100%;">
   <div class="row justify-content-center">
 
     <div class="col-md-8">
@@ -18,7 +18,7 @@
               <p class="card-text">
                {{ auth()->user()->profile->description }}
               </p>
-              <p class="card-text"><small class="text-muted">{{ auth()->user()->profile->name }}</small></p>
+              <p class="card-text"><small class="text-muted">Bruno test</small></p>
             </div>
           </div>
         </div>
