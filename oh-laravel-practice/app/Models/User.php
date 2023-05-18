@@ -57,7 +57,7 @@ class User extends Authenticatable
 						'user_id' => $user->id,
 						'name' => $user->name,
 						'description' => 'Describe your Doggo!',
-						'image' => '/svg/brunoPFP.webp',
+						'image' => '/svg/defaultPFP.webp',
 						// Set other default profile attributes here
 				]);
 		});
