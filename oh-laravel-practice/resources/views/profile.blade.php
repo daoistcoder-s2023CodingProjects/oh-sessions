@@ -10,7 +10,7 @@
         <div class="row g-0">
           <div class="col-md-3">
             <div class="card-img-container">
-              <img src="{{ Auth::user()->profile->image }}" class="img-thumbnail w-100 img-fluid" alt="bruno-profilepic" data-bs-toggle="modal" data-bs-target="#profilePicModal">
+						<img src="{{ Auth::user()->profile->image }}" class="img-thumbnail w-100 img-fluid" alt="Profile Image" data-bs-toggle="modal" data-bs-target="#profilePicModal">
             </div>
           </div>
           <div class="col-md-9">
@@ -36,8 +36,33 @@
   </div>
 </div>
 
-
 <div class="modal fade" id="profilePicModal" tabindex="-1" aria-labelledby="profilePicModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="profilePicModalLabel">Update Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{{ route('profile.updateImage', ['id' => Auth::id()]) }}" method="POST" enctype="multipart/form-data">
+          @csrf
+          @method('PUT')
+          <div class="mb-3">
+            <label for="imageInput" class="form-label">Profile Image</label>
+            <input type="file" class="form-control" id="imageInput" name="image">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="modal fade" id="profilePicModal" tabindex="-1" aria-labelledby="profilePicModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -45,7 +70,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <!-- Form to change profile picture goes here -->
+        
         <p>This is where you can upload a new profile picture.</p>
       </div>
       <div class="modal-footer">
@@ -54,7 +79,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <div class="modal fade" id="updateProfileModal" tabindex="-1" aria-labelledby="updateProfileModalLabel" aria-hidden="true">
   <div class="modal-dialog">

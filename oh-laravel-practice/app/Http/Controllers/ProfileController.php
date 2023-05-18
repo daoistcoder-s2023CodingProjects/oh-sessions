@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {   
@@ -66,11 +67,35 @@ class ProfileController extends Controller
 			$profile = Profile::findOrFail($id);
 			$profile->name = $request->input('name');
 			$profile->description = $request->input('description');
+
 			$profile->save();
 
 			return redirect()->back()->with('success', 'Profile updated successfully');
 
     }
+
+		public function updateImage(Request $request, $id)
+		{
+				$profile = Profile::findOrFail($id);
+		
+				if ($request->hasFile('image')) {
+						$image = $request->file('image');
+						$imageName = time() . '.' . $image->getClientOriginalExtension();
+						$image->storeAs('public/images', $imageName);
+		
+						// Delete old image if exists
+						Storage::delete('public/images/' . basename($profile->image));
+		
+						$profile->image = asset('storage/images/' . $imageName);
+						$profile->save();
+				}
+		
+				return redirect()->back()->with('success', 'Profile image updated successfully');
+		}
+		
+		
+
+		
 
     /**
      * Remove the specified resource from storage.
