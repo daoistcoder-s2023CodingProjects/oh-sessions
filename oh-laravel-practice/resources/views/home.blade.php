@@ -9,7 +9,7 @@
         <div class="row g-0">
           <div class="col-md-3">
             <div class="card-img-container">
-                  <img src="/svg/brunoPFP.webp" class="img-thumbnail w-100 img-fluid" alt="bruno-profilepic">
+                  <img src="{{ Auth::user()->profile->image }}" class="img-thumbnail w-100 img-fluid" alt="bruno-profilepic">
             </div>
           </div>
           <div class="col-md-9">
