@@ -33,3 +33,6 @@ Route::put('/profile/{id}', [ProfileController::class, 'update'])
 
 Route::put('/profile/{id}/update-image', [ProfileController::class, 'updateImage'])
 	->name('profile.updateImage');
+
+Route::get('/album', [TestController::class, 'index'])
+	->name('album');
